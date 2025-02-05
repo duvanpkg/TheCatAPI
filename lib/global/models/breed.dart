@@ -2,8 +2,8 @@ class Breed {
   // String id;
   String name;
   String description;
-  String imageReferenceId;
-  String imageUrl;
+  String? imageReferenceId;
+  String? imageUrl;
 
   String originCountry;
   int intelligence;
@@ -14,8 +14,8 @@ class Breed {
     // required this.id,
     required this.name,
     required this.description,
-    required this.imageReferenceId,
-    required this.imageUrl,
+    this.imageReferenceId,
+    this.imageUrl,
     required this.originCountry,
     required this.intelligence,
     required this.adaptability,
@@ -27,12 +27,12 @@ class Breed {
       // id: json['id'],
       name: json['name'],
       description: json['description'],
-      imageReferenceId: json['reference_image_id'] ?? '',
-      imageUrl: json['image']['url'],
+      imageReferenceId: json['reference_image_id'],
+      imageUrl: json['image'],
       originCountry: json['origin'],
       intelligence: json['intelligence'],
       adaptability: json['adaptability'],
-      lifeSpan: json['life_span'] ?? '',
+      lifeSpan: json['life_span'],
     );
   }
 }
