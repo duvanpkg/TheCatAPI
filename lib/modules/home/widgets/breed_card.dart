@@ -48,7 +48,7 @@ class BreedCard extends StatelessWidget {
                 child: CachedNetworkImage(
                     imageUrl: breed.imageUrl ??
                         'https://www.iconpacks.net/icons/4/free-no-image-icon-14596-thumb.png',
-                    height: 200,
+                    height: 300,
                     width: double.infinity,
                     fit: BoxFit.cover),
               ),
