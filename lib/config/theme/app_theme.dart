@@ -20,12 +20,33 @@ class AppTheme {
     colorScheme: const ColorScheme.light().copyWith(primary: primaryColor),
     primaryColor: primaryColor,
     scaffoldBackgroundColor: Colors.white,
+
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white, // Background color of the AppBar
       shadowColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       toolbarHeight: 35,
+    ),
+
+    // Adding InputDecorationTheme
+    inputDecorationTheme: const InputDecorationTheme(
+      focusedErrorBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          borderSide: BorderSide(width: 0.7, color: redAccent)),
+      focusedBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          borderSide: BorderSide(width: 0.0, style: BorderStyle.none)),
+      enabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          borderSide: BorderSide(width: 0.0, style: BorderStyle.none)),
+      disabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          borderSide: BorderSide(width: 0.0, style: BorderStyle.none)),
+      contentPadding:
+          EdgeInsets.symmetric(vertical: 14.0, horizontal: 20.0), // Input Size
+      fillColor: greyInputs, // Color de fondo
+      filled: true,
     ),
   );
 }

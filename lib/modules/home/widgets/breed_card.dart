@@ -30,6 +30,10 @@ class BreedCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
+              const Icon(
+                Icons.chevron_right,
+                size: 26,
+              ),
             ],
           ),
           const SizedBox(height: 10),

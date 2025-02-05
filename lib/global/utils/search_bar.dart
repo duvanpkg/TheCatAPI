@@ -26,21 +26,23 @@ class SearchBarApp extends StatelessWidget {
           controller: controller,
           textAlignVertical: TextAlignVertical.top,
           onSubmitted: (text) {
-            if (isSearchScreen && onSearchRefresh != null) {
-              // If already in search screen, refresh
-              onSearchRefresh!();
-            } else {
-              // Navigate to search screen
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        SearchBreedsScreen(searchText: controller.text)),
-              );
+            if (text.isNotEmpty) {
+              if (isSearchScreen && onSearchRefresh != null) {
+                // If already in search screen, refresh
+                onSearchRefresh!();
+              } else {
+                // Navigate to search screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          SearchBreedsScreen(searchText: controller.text)),
+                );
+              }
             }
           },
           decoration: const InputDecoration(
-            hintText: "Búsqueda",
+            hintText: "Search",
             hintStyle: TextStyle(
               fontSize: 14,
             ),

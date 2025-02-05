@@ -11,9 +11,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const HomeScreen(),
-      theme: AppTheme.normalTheme,
+    return GestureDetector(
+      onTap: () {
+        // this is used to close the keyboard when the user taps outside the TextField in the entire app
+        WidgetsBinding.instance.focusManager.primaryFocus?.unfocus();
+      },
+      child: MaterialApp(
+        home: const HomeScreen(),
+        theme: AppTheme.normalTheme,
+      ),
     );
   }
 }
