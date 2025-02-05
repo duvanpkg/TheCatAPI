@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:the_cat_api_duvan/config/theme/app_theme.dart';
 import 'package:the_cat_api_duvan/global/models/breed.dart';
 import 'package:the_cat_api_duvan/global/services/cat_breed.dart';
-import 'package:the_cat_api_duvan/global/utils/search_bar.dart';
+import 'package:the_cat_api_duvan/global/widgets/search_bar.dart';
 import 'package:the_cat_api_duvan/modules/home/screens/breed_details.dart';
 import 'package:the_cat_api_duvan/modules/home/widgets/breed_card.dart';
 
