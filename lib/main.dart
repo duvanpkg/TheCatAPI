@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         home: const HomeScreen(),
         theme: AppTheme.normalTheme,
+        debugShowCheckedModeBanner: false,
       ),
     );
   }
