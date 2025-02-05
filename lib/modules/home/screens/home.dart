@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:the_cat_api_duvan/config/theme/app_theme.dart';
 import 'package:the_cat_api_duvan/global/models/breed.dart';
 import 'package:the_cat_api_duvan/global/services/cat_breed.dart';
+import 'package:the_cat_api_duvan/global/utils/search_bar.dart';
+import 'package:the_cat_api_duvan/modules/home/screens/breed_details.dart';
 import 'package:the_cat_api_duvan/modules/home/widgets/breed_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -61,18 +64,49 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Cat's breeds")),
-      body: ListView.builder(
-        controller: _scrollController,
-        itemCount: _allBreeds.length +
-            (_isLoading ? 1 : 0), // Extra item for the loading indicator
-        itemBuilder: (context, index) {
-          if (index == _allBreeds.length) {
-            return const Center(
-                child:
-                    CircularProgressIndicator()); // show loading indicator in the end
-          }
-          return BreedCard(breed: _allBreeds[index]);
-        },
+      body: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Column(
+          children: [
+            const SearchBarApp(),
+            const SizedBox(height: 10),
+            Expanded(
+              child: ListView.builder(
+                controller: _scrollController,
+                itemCount: _allBreeds.length +
+                    (_isLoading
+                        ? 1
+                        : 0), // Extra item for the loading indicator
+                itemBuilder: (context, index) {
+                  if (index == _allBreeds.length) {
+                    return const Center(
+                        child:
+                            CircularProgressIndicator()); // show loading indicator in the end
+                  }
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              BreedDetailsScreen(breed: _allBreeds[index]),
+                        ),
+                      );
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        BreedCard(breed: _allBreeds[index]),
+                        if (index != _allBreeds.length - 1)
+                          const Divider(color: greyLight, thickness: 0.5),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
