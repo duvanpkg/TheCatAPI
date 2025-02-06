@@ -63,7 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Center(child: Text("Cat's breeds"))),
+      appBar: AppBar(
+        title: const Text("Cat's breeds"),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Column(

@@ -18,6 +18,7 @@ class _BreedDetailsScreenState extends State<BreedDetailsScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.breed.name),
+          centerTitle: true,
         ),
         body: SafeArea(
           child: Padding(
