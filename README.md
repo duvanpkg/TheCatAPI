@@ -1,16 +1,27 @@
-# the_cat_api_duvan
+# The Cat API - Duvan Diaz
 
-A new Flutter project.
+Este repositorio contiene los videos de prueba de la aplicación en plataformas Android e iOS. Los videos muestran cómo la app se comporta en ambas plataformas, ayudando en la verificación de su funcionamiento.
 
-## Getting Started
+## Requisitos de versión
 
-This project is a starting point for a Flutter application.
+Para una correcta ejecución y desarrollo del proyecto, asegúrate de usar las siguientes versiones de las herramientas:
 
-A few resources to get you started if this is your first Flutter project:
+- **Flutter**: 3.24.3
+- **Dart**: 3.5.3
+- **DevTools**: 2.37.3
+- **Xcode**: 16.2
+- **Android Studio**: Ladybug Feature Drop | 2024.2.2
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Archivos adjuntos
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A continuación, encontrarás los videos donde se prueba la aplicación en Android e iOS:
+
+- [Video de prueba en Android](https://github.com/user-attachments/assets/ce54b8fc-0641-47eb-8f27-7fa1afd68438)
+- [Video de prueba en iOS](https://github.com/user-attachments/assets/82761639-f71e-4a17-ab8d-0b78f309bea5)
+
+## Instrucciones
+
+1. Asegúrate de tener instaladas las versiones correctas de Flutter, Dart, DevTools y Android Studio o Xcode como se especifica.
+2. Descarga el proyecto y ejecútalo en Android Studio o Xcode.
+3. Observa los videos de prueba para validar el comportamiento de la aplicación en ambos sistemas operativos.
+4. Si tienes alguna duda o necesitas ayuda con la configuración envíame un email a duvan.diaz.mz@gmail.com o WhatsApp +57 3005187989
