@@ -9,6 +9,11 @@ class CatBreedService {
       final response = await http.get(
         Uri.parse(
             'https://api.thecatapi.com/v1/breeds?limit=$limit&page=$page'),
+        headers: {
+          // this api key is public, it's not a problem to show it, but it's better to hide it in a .env file
+          'x-api-key':
+              'live_99Qe4Ppj34NdplyLW67xCV7Ds0oSLKGgcWWYnSzMJY9C0QOu0HUR4azYxWkyW2nr'
+        },
       );
 
       if (response.statusCode == 200) {
@@ -18,25 +23,10 @@ class CatBreedService {
         for (var jsonBreed in breedsJson) {
           final breed = Breed.fromJsonMap(jsonBreed);
 
-          if (breed.imageReferenceId != null) {
-            final imageResponse = await http.get(
-              // I use the image reference id to fetch the image because the &attach_image=1 query parameter is not working in the last endpoint
-              Uri.parse(
-                  'https://api.thecatapi.com/v1/images/${breed.imageReferenceId}'),
-            );
-
-            if (imageResponse.statusCode == 200) {
-              final imageJson = json.decode(imageResponse.body);
-              breed.imageUrl = imageJson['url'];
-            } else {
-              breed.imageUrl =
-                  'https://www.iconpacks.net/icons/4/free-no-image-icon-14596-thumb.png'; // fallback if image fetch fails
-            }
-          } else {
+          if (breed.imageUrl == null || breed.imageUrl == '') {
             breed.imageUrl =
                 'https://www.iconpacks.net/icons/4/free-no-image-icon-14596-thumb.png'; // some breeds don't have an image
           }
-
           breeds.add(breed);
         }
 
@@ -53,6 +43,10 @@ class CatBreedService {
     try {
       final response = await http.get(
         Uri.parse('https://api.thecatapi.com/v1/breeds/search?q=$searchText'),
+        headers: {
+          'x-api-key':
+              'live_99Qe4Ppj34NdplyLW67xCV7Ds0oSLKGgcWWYnSzMJY9C0QOu0HUR4azYxWkyW2nr'
+        },
       );
 
       if (response.statusCode == 200) {
@@ -62,24 +56,11 @@ class CatBreedService {
         for (var jsonBreed in breedsJson) {
           final breed = Breed.fromJsonMap(jsonBreed);
 
-          if (breed.imageReferenceId != null) {
-            final imageResponse = await http.get(
-              // I use the image reference id to fetch the image because the &attach_image=1 query parameter is not working in the last endpoint
-              Uri.parse(
-                  'https://api.thecatapi.com/v1/images/${breed.imageReferenceId}'),
-            );
-
-            if (imageResponse.statusCode == 200) {
-              final imageJson = json.decode(imageResponse.body);
-              breed.imageUrl = imageJson['url'];
-            } else {
-              breed.imageUrl =
-                  'https://www.iconpacks.net/icons/4/free-no-image-icon-14596-thumb.png'; // fallback if image fetch fails
-            }
-          } else {
+          if (breed.imageUrl == null || breed.imageUrl == '') {
             breed.imageUrl =
                 'https://www.iconpacks.net/icons/4/free-no-image-icon-14596-thumb.png'; // some breeds don't have an image
           }
+
           breeds.add(breed);
         }
         return breeds;

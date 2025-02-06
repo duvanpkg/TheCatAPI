@@ -76,10 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Expanded(
               child: ListView.builder(
                 controller: _scrollController,
-                itemCount: _allBreeds.length +
-                    (_isLoading
-                        ? 1
-                        : 0), // Extra item for the loading indicator
+                // Extra item for the loading indicator
+                itemCount: _allBreeds.length + (_isLoading ? 1 : 0),
                 itemBuilder: (context, index) {
                   if (index == _allBreeds.length) {
                     return const Center(

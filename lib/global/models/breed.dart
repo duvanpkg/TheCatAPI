@@ -28,7 +28,9 @@ class Breed {
       name: json['name'],
       description: json['description'],
       imageReferenceId: json['reference_image_id'],
-      imageUrl: json['image'],
+      imageUrl: json['image'] != null && json['image']['url'] != null
+          ? json['image']['url']
+          : '',
       originCountry: json['origin'],
       intelligence: json['intelligence'],
       adaptability: json['adaptability'],
